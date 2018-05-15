@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+html, body{
+    background-color: #ffac1529!important;
+}
+h1, h3 {
+    color: chocolate!important;
+}
+p {
+    color: darkgoldenrod;
+}
+
+.puzzle-container {
+    background-color: chocolate;
+    width: 100%;
+    float: left;
+    height: 600px;
+    box-shadow: 2px 0px 10px 1px grey;
+}
+
+.full-screen {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+    z-index: 999;
+}
+
+.annotation {
+    box-shadow: 2px 0px 10px 1px grey;
+    height: 100%;
+    padding: 10px;
+}
+h3 {
+    font-size: 18px!important;
+    font-weight: bold!important;
+}
+
+p {
+    font-size: 14px;
+}
+
+.puzzle-container input {
+    background-color: aliceblue;
+}

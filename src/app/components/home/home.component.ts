@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MockService, Puzzle } from '../../services/mock-service';
 declare var $:any;
+const letters = /^[A-Za-z]+$/;
 
 @Component({
   selector: 'app-home',
@@ -30,5 +31,15 @@ export class HomeComponent implements OnInit {
     setTimeout(()=>{    
       this.count = 0;
     }, 1200);
+  }
+
+  autofocus($event) {
+    if(letters.test($event.key) && $event.key.length === 1) {
+      setTimeout(()=>{
+        $event.srcElement.nextElementSibling.focus();
+      }, 200);
+    } else {
+      $event.srcElement.value = null;
+    }
   }
 }

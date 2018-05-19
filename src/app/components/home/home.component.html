@@ -1,52 +1,15 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <h1>KARE BULMACA</h1>
     <div class="col-md-10 col-xs-12">
-      <section class="puzzle-container" (click)="maximize()" id="puzzle-container">
-        <input type="text" name="" maxlength="1" autofocus (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
-        <input type="text" name="" maxlength="1" (keyup)="autofocus($event)">
+      <section class="puzzle-container" (click)="maximize()" id="puzzle-container" (keydown)="autofocus($event)">
+        <div class="puzzle-squares" *ngFor="let item of createRange(10); let rowIndex=index" [attr.id]="'row-' + rowIndex">
+          <input type="text" maxlength="1" *ngFor="let item of createRange(10); let colIndex=index" [attr.id]="'row-'+ rowIndex +'col-' + colIndex">
+          <div class="question" data-toggle="tooltip" data-placement="top" title="Lorem ipsum dolor sit, amet.">
+            <p>Lorem ipsum dolor sit, amet.</p>
+          </div>
+          <input type="text" maxlength="1" *ngFor="let item of createRange(9); let colIndex=index">
+        </div>
       </section>
     </div>
     <div class="annotation col-md-2 col-xs-12">
@@ -54,4 +17,192 @@
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi, laudantium? Quisquam excepturi mollitia rerum magni modi pariatur tempore distinctio nobis iste ad, odit corporis libero, a praesentium, non doloribus soluta?</p>
     </div>
   </div>
-</div>
+</div> -->
+<h1>CrossWord</h1>
+
+<main>
+  <del></del>
+  <ins data-clue=1 data-dir="across" data-length=2></ins>
+  <ins data-clue=2></ins>
+  <del></del>
+  <del></del>
+  <ins data-clue=3></ins>
+  <del></del>
+  <ins data-clue=4></ins>
+  <ins></ins>
+  <ins data-clue=5></ins>
+  <del></del>
+  <del></del>
+
+  <del></del>
+  <ins data-clue=6></ins>
+  <ins></ins>
+  <ins></ins>
+  <ins></ins>
+  <ins></ins>
+  <ins></ins>
+  <del></del>
+  <del></del>
+  <ins></ins>
+  <del></del>
+  <ins data-clue=7></ins>
+
+  <del></del>
+  <del></del>
+  <ins></ins>
+  <del></del>
+  <del></del>
+  <ins></ins>
+  <del></del>
+  <del></del>
+  <del></del>
+  <ins></ins>
+  <del></del>
+  <ins></ins>
+
+  <del></del>
+  <ins data-clue=8></ins>
+  <ins></ins>
+  <ins></ins>
+  <del></del>
+  <ins></ins>
+  <del></del>
+  <ins data-clue=9></ins>
+  <ins></ins>
+  <ins></ins>
+  <ins></ins>
+  <ins></ins>
+
+  <del></del>
+  <del></del>
+  <ins></ins>
+  <del></del>
+  <del></del>
+  <ins></ins>
+  <del></del>
+  <del></del>
+  <del></del>
+  <ins></ins>
+  <del></del>
+  <ins></ins>
+
+  <del></del>
+  <del></del>
+  <del></del>
+  <ins data-clue=10></ins>
+  <ins></ins>
+  <ins></ins>
+  <ins></ins>
+  <del></del>
+  <del></del>
+  <ins></ins>
+  <del></del>
+  <ins></ins>
+
+  <ins data-clue=11></ins>
+  <ins data-clue=12></ins>
+  <ins></ins>
+  <ins></ins>
+  <del></del>
+  <ins></ins>
+  <del></del>
+  <del></del>
+  <del></del>
+  <ins></ins>
+  <del></del>
+  <ins></ins>
+
+  <del></del>
+  <ins></ins>
+  <del></del>
+  <ins></ins>
+  <del></del>
+  <ins></ins>
+  <del></del>
+  <del></del>
+  <del></del>
+  <ins></ins>
+  <del></del>
+  <del></del>
+
+  <del></del>
+  <ins></ins>
+  <del></del>
+  <del></del>
+  <del></del>
+  <del></del>
+  <ins data-clue=13></ins>
+  <ins></ins>
+  <ins></ins>
+  <ins></ins>
+  <ins></ins>
+  <del></del>
+
+  <del></del>
+  <ins></ins>
+  <del></del>
+  <ins data-clue=14></ins>
+  <del></del>
+  <del></del>
+  <del></del>
+  <del></del>
+  <del></del>
+  <ins></ins>
+  <del></del>
+  <del></del>
+
+  <del></del>
+  <ins data-clue=15></ins>
+  <ins></ins>
+  <ins></ins>
+  <ins></ins>
+  <ins></ins>
+  <ins data-clue=16></ins>
+  <ins></ins>
+  <ins></ins>
+  <ins></ins>
+  <ins></ins>
+  <ins></ins>
+
+  <del></del>
+  <del></del>
+  <del></del>
+  <ins></ins>
+  <del></del>
+  <del></del>
+  <ins></ins>
+  <del></del>
+  <del></del>
+  <del></del>
+  <del></del>
+  <del></del>
+
+</main>
+<ul>
+  <li class="heading">Across</li>
+  <li data-clue=1 data-dir="across" data-length=2>1. Horizontal viewport unit (2)</li>
+  <li data-clue=4 data-dir="across" data-length=3>4. A line in the grid (3)</li>
+  <li data-clue=6 data-dir="across" data-length=6>6. Removed from the DOM (6)</li>
+  <li data-clue=8 data-dir="across" data-length=3>8. child, of-type, etc (3)</li>
+  <li data-clue=9 data-dir="across" data-length=5>9. Post, pseudo element (5)</li>
+  <li data-clue=10 data-dir="across" data-length=4>10. CSS layout tech (4)</li>
+  <li data-clue=11 data-dir="across" data-length=4>11. Named layout group (4)</li>
+  <li data-clue=13 data-dir="across" data-length=5>13. Text hue (5)</li>
+  <li data-clue=15 data-dir="across" data-length=11>15. No color (11)</li>
+</ul>
+
+<ul>
+  <li class="heading">Down</li>
+  <li data-clue=1 data-dir="down" data-length=2>1. Vertical viewport unit (2)</li>
+  <li data-clue=2 data-dir="down" data-length=5>2. Fixed horizontal length (5)</li>
+  <li data-clue=3 data-dir="down" data-length=8>3. Positioned in parent's frame (8)</li>
+  <li data-clue=5 data-dir="down" data-length=11>5. Text display direction (7,4)</li>
+  <li data-clue=7 data-dir="down" data-length=6>7. Around the outside (6)</li>
+  <li data-clue=10 data-dir="down" data-length=3>10. Space between elements (3)</li>
+  <li data-clue=12 data-dir="down" data-length=5>12. Opposite of left (5)</li>
+  <li data-clue=14 data-dir="down" data-length=3>14. Alternative angle unit (3)</li>
+  <li data-clue=16 data-dir="down" data-length=2>16. Pica unit (2)</li>
+
+</ul>
+
+<p>Click on a clue or press TAB. Type your answers.</p>

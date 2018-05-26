@@ -1,92 +1,23 @@
-/* display: grid;
-grid-template-columns: repeat(20, 5%);
-grid-template-rows: repeat(20, 6%); */
-/* 
-html, body{
-    background-color: #ffac1529!important;
-    height: 100%;
-}
-h1, h3 {
-    color: chocolate!important;
-}
-p {
-    color: darkgoldenrod;
-}
-
-.puzzle-container {
-    background-color: chocolate;
-    width: 100%;
-    float: left;
-    height: 458px;
-    box-shadow: 2px 0px 10px 1px grey;
-    overflow: hidden;
-    border: 2px solid chocolate;
-}
-
-.full-screen {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    height: 100%;
-    z-index: 999;
-}
-
-.annotation {
-    box-shadow: 2px 0px 10px 1px grey;
-    height: 100%;
-    padding: 10px;
-}
-h3 {
-    font-size: 18px!important;
-    font-weight: bold!important;
-}
-
-p {
-    font-size: 14px;
-}
-
-.puzzle-container input, .puzzle-container div {
-    background-color: aliceblue;
-    float: left;
-    width: 5%;
-    height: 100%;
-    font-size: 26px;
-    text-align: center;
-    color: saddlebrown;
-    box-shadow: 2px 1px 2px grey inset;
-}
-
-.puzzle-container .question {
-    background-color: lightgray;
-    cursor: pointer;
-}
-
-.question p {
-    font-size: 10px;
-    font-weight: bold;
-    color: black;
-    margin: 0;
-}
-
-.puzzle-container div.puzzle-squares {
-    width: 100%;
-    height: 10%;
-} */
-
 @import url('https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope|Libre+Baskerville');
 
 body {
-  font-family: 'Libre Baskerville';
-  display: grid!important;
+  font-family: 'Libre Baskerville', sans-serif;
+  /* display: grid!important;
   grid-template-rows: 1fr 5fr 5fr 1fr;
   grid-template-columns: 1fr 1fr;
   grid-gap: 15px;
   align-items: center;
   justify-items: center;
   margin: 0;
-  padding: 10px;
+  padding: 10px; */
+}
+
+body, html {
+  background-color: skyblue!important;
+}
+
+.container {
+  max-width: unset!important;
 }
 
 h1 {
@@ -104,7 +35,9 @@ main {
   grid-template-columns: repeat(12, 7vmin);
   grid-gap: 2px;
 }
-
+.questions-container, .main-container {
+  padding: 0!important;
+}
 p {
   grid-column: 1/3;
 }
@@ -150,10 +83,11 @@ ins {
   background-color: white;
   border: 1px solid #444;
   text-decoration: none;
-  font-size: calc(24px + 0.5vmin);
+  font-size: calc(24px - 0.5vmin);
   padding: 0;
   margin: 0;
   text-transform: uppercase;
+  line-height: 1;
 }
 
 ins[data-clue] {
@@ -210,4 +144,69 @@ ins.cursor {
   to {
     box-shadow: inset 0 0 0 6px #BBB;
   }
+}
+
+@media screen and (max-width: 575px) {
+  .questions-container {
+    position: fixed!important;
+    background-color: #a0cccc;
+    right: 0;
+    left: 100vh;
+    top: 0;
+    -webkit-transition: all .2s linear;
+    transition: all .2s linear;
+    bottom: 0;
+    overflow-y: auto;
+  }
+  .questions-container.open{
+    left: 0;
+  }
+}
+
+.open {
+  position: absolute;
+  right: 0;
+  top: 27%;
+  cursor: pointer;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
+}
+
+.opened {
+  top: 10px;
+  right: 20px;
+}
+
+.opened p {
+  width: 30px;
+  text-align: center;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid black;
+  color: black;
+  margin: 0;
+  line-height: 30px;
+}
+
+.arrow-left{
+  width: 0; 
+  height: 0; 
+  border-top: 50px solid transparent;
+  border-bottom: 50px solid transparent; 
+  border-right:15px solid darkblue; 
+}
+
+.current-question {
+  border: 1px solid black;
+  min-height: 90px;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.menuOpened.container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }

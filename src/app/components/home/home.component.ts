@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   index: any;
   clues: any;
   isMenuOpen: boolean = false;
+  answerDone: boolean;
 
   constructor(/*public mock: MockService*/) { }
 
@@ -115,6 +116,7 @@ export class HomeComponent implements OnInit {
     })();
   }
   editClue(elm, ths, isSelected) {
+    document.getElementById('invisible-input').focus();
     if(this.isMenuOpen) {
       this.toggleMenu();
     }
@@ -252,15 +254,39 @@ export class HomeComponent implements OnInit {
         }
       }
     }
+    this.answerDone = (this.state.length === this.state.answers[this.state.clue + '-' + this.state.dir].length);
+  }
+
+  submitAnswer() {
+    if(this.answerDone) {
+      console.log('cevap gonderildi');
+    }
+  }
+
+  getScore() {
+    /*
+      1) Zaman: 30 dakikada -1 puan
+
+      2) Rastgele dağılmış yıldızlı kutuları toplamak +10 puan
+          -> Her yeni cevapta kutunun yeri değişecek.
+          -> Ardarda toplanan yıldızlı kutularda kutu puanı 2.ye katlanır.
+          Örnek: 2. kutu 20 puan, 3. kutu 40 puan, 4. kutu 80 puan şeklinde
+
+      3) Eğer cevap kutuları tam doluysa yanlış cevap başı -1 puan
+
+      4) İpucu almak -10 puan
+
+      5) Verilen doğru cevapta yazılan harf başına +10 puan
+    */
   }
 
   /*maximize() {
     this.count++;
     if(this.count>1){
-      if(!$('#puzzle-container').hasClass('full-screen')){
-        $('#puzzle-container').addClass('full-screen');
+      if(!$('.container').hasClass('full-screen')){
+        $('.container').addClass('full-screen');
       } else {
-        $('#puzzle-container').removeClass('full-screen');
+        $('.container').removeClass('full-screen');
       }
     }
     setTimeout(()=>{    
@@ -275,4 +301,23 @@ export class HomeComponent implements OnInit {
     }
     return items;
   }*/
+
+  /*
+    YAPILACAKLAR
+
+    1) Score hesaplama
+    2) Bug düzeltmek
+    3) Facebook ile giriş ya da Gmail ile giriş
+    4) Puan hesaplandıktan sonra sıralama yapmak
+    5) Sıralamayı gösteren ekran
+    6) İkili oyun oynamak 
+      Kurallar: Rakiple sen oynuyosun
+                30-60-120-240 dakika boyunca oynamazsa el geçiyor
+                En fazla puanı alan birinci oluyor
+    7) Soru havuzundan otomatik puzzle üretmek
+    8) Puzzle'ı sisteme entegre etmek
+    9) Soruları ve cevapları backend'de tutmak, gönderilen cevapla karşılaştırmak
+    10) Karşılaştırılan cevaplar kalıcı olarak puzzle'da gösterilecek
+
+  */
 }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope|Libre+Baskerville');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC:400,700&amp;subset=latin-ext|Libre+Baskerville');
 
 body {
   font-family: 'Libre Baskerville', sans-serif;
@@ -25,6 +25,7 @@ h1 {
   grid-column: 1/3;
   padding: 0;
   margin: 0;
+  font-size: 2rem!important;
 }
 
 main {
@@ -42,29 +43,6 @@ p {
   grid-column: 1/3;
 }
 
-@media screen and (min-width: 900px) {
-
-  body {
-    grid-template-rows: 1fr 6fr 6fr;
-    grid-template-columns: 4fr 3fr;
-  }
-
-  h1 {
-    grid-row: 1;
-    grid-column: 1/3;
-    padding: 0;
-    margin: 0;
-  }
-
-  main {
-    grid-row: 2/4;
-    grid-column: 1;
-    display: grid;
-    grid-template-rows: repeat(12, 5vw);
-    grid-template-columns: repeat(12, 5vw);
-    grid-gap: 2px;
-  }
-}
 
 ins,del {
   border-radius: 2px;
@@ -75,7 +53,7 @@ del {
 }
 
 ins {
-  font-family: 'Annie Use Your Telescope', cursive;
+  font-family: 'Amatic SC', cursive;
   position: relative;
   display: grid!important;
   align-items: center;
@@ -88,19 +66,22 @@ ins {
   margin: 0;
   text-transform: uppercase;
   line-height: 1;
+  font-weight: bold;
 }
 
 ins[data-clue] {
   cursor: pointer;
+  padding-left: 9px;
 }
 
 ins[data-clue]:before {
-  font-family: 'Libre Baskerville';
+  font-family: 'Libre Baskerville', sans-serif;
   position: absolute;
   top: 1px;
   left: 2px;
   font-size: 10px;
-	content: attr(data-clue);
+  content: attr(data-clue);
+  font-weight: normal;
 }
 
 ul {
@@ -121,7 +102,9 @@ li.heading {
 }
 
 ins.highlight, li.current {
-  background-color: #ffd;
+  background-color: #48a2c6;
+  box-shadow: 5px 5px 5px #aaaaaa;
+  border-radius: 3px;
 }
 
 ins.editting {
@@ -157,6 +140,7 @@ ins.cursor {
     transition: all .2s linear;
     bottom: 0;
     overflow-y: auto;
+    z-index: 9;
   }
   .questions-container.open{
     left: 0;
@@ -166,7 +150,7 @@ ins.cursor {
 .open {
   position: absolute;
   right: 0;
-  top: 27%;
+  top: 30%;
   cursor: pointer;
   -webkit-transition: all .2s linear;
   transition: all .2s linear;
@@ -175,6 +159,7 @@ ins.cursor {
 .opened {
   top: 10px;
   right: 20px;
+  z-index: 10;
 }
 
 .opened p {
@@ -188,19 +173,30 @@ ins.cursor {
   line-height: 30px;
 }
 
+.opened p:hover {
+  background-color: black;
+  color: skyblue;
+}
+
 .arrow-left{
   width: 0; 
   height: 0; 
   border-top: 50px solid transparent;
   border-bottom: 50px solid transparent; 
   border-right:15px solid darkblue; 
+  position: fixed;
+  right: 0;
 }
 
-.current-question {
-  border: 1px solid black;
+.current-question, .annotation {
+  border: 1px solid #0000003b;
   min-height: 90px;
-  margin-top: 10px;
+  margin: 10px 0;
   padding: 10px;
+  border-radius: 2px;
+  box-shadow: 5px 5px 5px #aaaaaa;
+  float: left;
+  width: 100%;
 }
 
 .menuOpened.container {
@@ -209,4 +205,84 @@ ins.cursor {
   bottom: 0;
   left: 0;
   right: 0;
+}
+input {
+  opacity: 0;
+  position: absolute;
+  color: transparent;
+  top: 35%;
+  border: none;
+  background: 0;
+  cursor: none;
+  caret-color: transparent;
+}
+input:focus {
+  outline: none;
+}
+.current-question h2, .annotation h2 {
+  float: left;
+  font-size: 26px;
+  font-weight: bold;
+}
+.current-question p, .annotation p {
+  float: left;
+  width: 100%;
+}
+
+.current-question .button, .current-question svg {
+  float: left;
+  padding-right: 3px;
+}
+
+.current-question .submit-button {
+  float: right;
+  margin-top: 3px;
+  opacity: 0.5;
+}
+
+.current-question .submit-button.submit-answer {
+  opacity: 1;
+  cursor: pointer;
+}
+.current-question .submit-button.submit-answer .button {
+  color: #0fc50ff5;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 900px) {
+
+  body {
+    grid-template-rows: 1fr 6fr 6fr;
+    grid-template-columns: 4fr 3fr;
+  }
+
+  h1 {
+    grid-row: 1;
+    grid-column: 1/3;
+    padding: 0;
+    margin: 0;
+  }
+
+  main {
+    grid-row: 2/4;
+    grid-column: 1;
+    display: grid;
+    grid-template-rows: repeat(12, 5vw);
+    grid-template-columns: repeat(12, 5vw);
+    grid-gap: 2px;
+  }
+
+  ins {
+    font-size: calc(24px + 1.5vmin);
+  }
+
+  ins:before {
+    font-size: 15px!important;
+    border: 1px solid #444;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    line-height: 18px;
+    text-align: center;
+  }
 }
